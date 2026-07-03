@@ -23,11 +23,11 @@
     align-items: flex-end;
     margin-top: 17px;
     margin-left: 64px;
+    gap: 50px;
 
     .tabs {
         display: flex;
         gap: 24px;
-        margin-left: 50px;
 
         li {
             list-style: none;
