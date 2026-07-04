@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import lifespanIcon from "../../assets/icons/lifespan.svg";
 import heightIcon from "../../assets/icons/height.svg";
 import wateringIcon from "../../assets/icons/watering.svg";
@@ -9,7 +10,25 @@ const statItems = [
   { icon: wateringIcon, label: "Watering", key: "watering" },
 ] as const;
 
-function PlantStats({ stats }: { stats: PlantStatsType }) {
+const VALUE_SLIDE = 28;
+
+const valueVariants = {
+  enter: (direction: number) => ({
+    y: direction >= 0 ? VALUE_SLIDE : -VALUE_SLIDE,
+  }),
+  center: { y: 0 },
+  exit: (direction: number) => ({
+    y: direction >= 0 ? -VALUE_SLIDE : VALUE_SLIDE,
+  }),
+};
+
+type PlantStatsProps = {
+  plantId: string;
+  stats: PlantStatsType;
+  direction: number;
+};
+
+function PlantStats({ plantId, stats, direction }: PlantStatsProps) {
   return (
     <div className="plant-stats">
       {statItems.map((item) => (
@@ -17,7 +36,22 @@ function PlantStats({ stats }: { stats: PlantStatsType }) {
           <img className="plant-stat-icon" src={item.icon} alt="" aria-hidden="true" />
           <div className="plant-stat-text">
             <span className="plant-stat-label">{item.label}</span>
-            <span className="plant-stat-value">{stats[item.key]}</span>
+            <div className="plant-stat-value">
+              <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+                <motion.span
+                  key={`${plantId}-${item.key}`}
+                  custom={direction}
+                  className="plant-stat-value-text"
+                  variants={valueVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                >
+                  {stats[item.key]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       ))}

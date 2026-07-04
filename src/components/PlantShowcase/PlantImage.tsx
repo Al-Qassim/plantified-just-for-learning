@@ -3,24 +3,45 @@ import type { Plant } from "./plants.data";
 
 const glow = `${import.meta.env.BASE_URL}plants/plant-glow.svg`;
 
-function PlantImage({ plant }: { plant: Plant }) {
+const SLIDE_DISTANCE = 520;
 
+const photoVariants = {
+  enter: (direction: number) => ({
+    x: direction >= 0 ? SLIDE_DISTANCE : -SLIDE_DISTANCE,
+    opacity: 0,
+  }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction: number) => ({
+    x: direction >= 0 ? -SLIDE_DISTANCE : SLIDE_DISTANCE,
+    opacity: 0,
+  }),
+};
+
+type PlantImageProps = {
+  plant: Plant;
+  direction: number;
+};
+
+function PlantImage({ plant, direction }: PlantImageProps) {
   return (
     <div className="plant-image">
       <div className="plant-glow" aria-hidden="true">
         <img src={glow} alt="" />
       </div>
-      <div className="plant-photo-stage">   {/* position: relative; overflow: hidden */}
-        <AnimatePresence mode="popLayout" initial={false}>
+
+      <div className="plant-photo-stage">
+        <AnimatePresence mode="popLayout" custom={direction} initial={false}>
           <motion.img
             key={plant.id}
+            custom={direction}
             className="plant-photo"
             src={plant.image}
             alt={plant.name}
-            initial={{ x: 450, opacity: 0 }}   
-            animate={{ x: 0, opacity: 1 }} 
-            exit={{ x: -450, opacity: 0 }} 
-            transition={{ type: "spring", stiffness: 260, damping: 22 }}
+            variants={photoVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "spring", stiffness: 100, damping: 15 }}
           />
         </AnimatePresence>
       </div>

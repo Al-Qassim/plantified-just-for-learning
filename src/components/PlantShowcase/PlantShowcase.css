@@ -29,9 +29,6 @@
   top: 0;
   width: 564px;
   height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .plant-glow {
@@ -51,9 +48,24 @@
   height: 180%;
 }
 
-.plant-photo {
-  position: relative;
+/* Clip window: spans the full left column (0 -> 564px, where the info
+   panel starts) so the sliding photo is clipped at the left edge and
+   just before the info, but never overlaps the text. */
+.plant-photo-stage {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1;
+  width: 500px;
+  height: 562px;
+  overflow: hidden;
+}
+
+.plant-photo {
+  position: absolute;
+  top: 0;
+  left: 57px;
   width: 450px;
   height: 562px;
   object-fit: contain;
@@ -78,11 +90,19 @@
 }
 
 .plant-info-head {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+}
+
+.plant-info-head-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  height: 170px;
-  overflow: hidden;
 }
 
 .plant-name {
@@ -136,10 +156,22 @@
 }
 
 .plant-stat-value {
+  position: relative;
+  width: 104px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.plant-stat-value-text {
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 16px;
+  line-height: 24px;
   color: rgba(31, 31, 31, 0.8);
+  white-space: nowrap;
 }
 
 /* Buy button */
