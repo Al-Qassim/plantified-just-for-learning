@@ -1,0 +1,187 @@
+.calendar {
+  padding: 0px var(--page-padding-x);
+}
+
+.calendar-card {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 48px 64px;
+  border-radius: 32px;
+  background-color: rgba(57, 187, 75, 0.06);
+}
+
+/* ---------- Decorative hanging plant ---------- */
+.calendar-hanging {
+  position: absolute;
+  top: 0;
+  right: -32px;
+  width: 150px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- Header ---------- */
+.calendar-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+}
+
+.calendar-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.calendar-subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+/* ---------- Timeline ---------- */
+.calendar-timeline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.calendar-season {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calendar-season.spring {
+  --icon-bg: rgba(57, 187, 75, 0.08);
+}
+
+.calendar-season.summer {
+  --icon-bg: #faefc4;
+}
+
+.calendar-season.autumn {
+  --icon-bg: #fae8d1;
+}
+
+.calendar-season.winter {
+  --icon-bg: #dce2fa;
+}
+
+/* ---------- Season header ---------- */
+.season-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.season-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--icon-bg);
+}
+
+.season-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.season-name {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-heading);
+}
+
+.season-months {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--color-text);
+}
+
+/* ---------- Tips ---------- */
+.season-tips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.season-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.season-tip-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--color-heading);
+  white-space: nowrap;
+}
+
+/* ---------- Icons ---------- */
+.season-tip-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.season-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .calendar-timeline {
+    flex-wrap: wrap;
+  }
+
+  .calendar-season {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .calendar-hanging {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .calendar-card {
+    padding: 32px 24px;
+  }
+
+  .calendar-season {
+    flex: 0 0 100%;
+  }
+}

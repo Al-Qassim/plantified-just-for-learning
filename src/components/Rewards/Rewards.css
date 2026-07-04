@@ -1,0 +1,138 @@
+.rewards {
+  padding: 0px var(--page-padding-x) 156px;
+}
+
+.rewards-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+/* ---------- Heading ---------- */
+.rewards-heading {
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+.rewards-heading-text {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.rewards-heading-text::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  bottom: 2px;
+  height: 15px;
+  border-radius: 100px;
+  background-color: rgba(57, 187, 75, 0.12);
+  z-index: -1;
+}
+
+/* ---------- Steps row ---------- */
+.rewards-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.rewards-step-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.reward-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.reward-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(57, 187, 75, 0.08);
+}
+
+.reward-step-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.reward-step-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  color: var(--color-heading);
+}
+
+.reward-step-desc {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.28px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* ---------- Connector arrow ---------- */
+.reward-connector {
+  flex-shrink: 0;
+  width: 84px;
+  height: auto;
+  margin-top: 18px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .rewards-steps {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .rewards-step-group {
+    flex: 0 0 calc(50% - 16px);
+  }
+
+  .reward-connector {
+    display: none;
+  }
+
+  .reward-step {
+    width: 100%;
+  }
+
+  .reward-step-desc {
+    white-space: normal;
+  }
+
+  .reward-step-desc br {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .rewards-step-group {
+    flex: 0 0 100%;
+  }
+}

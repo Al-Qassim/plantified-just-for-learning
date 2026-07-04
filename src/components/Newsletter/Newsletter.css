@@ -1,0 +1,132 @@
+.newsletter {
+  padding: 156px var(--page-padding-x) 73px;
+}
+
+.newsletter-card {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  border-radius: 24px;
+  background-color: #363d37;
+  box-shadow: 0 4px 12px rgba(54, 61, 55, 0.24);
+  overflow: hidden;
+}
+
+/* ---------- Decorative sprig ---------- */
+.newsletter-sprig {
+  position: absolute;
+  top: -9px;
+  right: 234px;
+  height: 264px;
+  width: auto;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- Content ---------- */
+.newsletter-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.newsletter-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.newsletter-desc {
+  margin: 0;
+  max-width: 816px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ---------- Email signup ---------- */
+.newsletter-form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.newsletter-input {
+  width: 425px;
+  max-width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.12);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+  outline: none;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.newsletter-input:focus {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.newsletter-submit {
+  flex-shrink: 0;
+  height: 48px;
+  padding: 4px 32px;
+  border: none;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 4px 12px rgba(52, 110, 60, 0.12);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter-submit:hover {
+  background-color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input {
+    width: 100%;
+  }
+
+  .newsletter-submit {
+    width: 100%;
+  }
+
+  .newsletter-sprig {
+    display: none;
+  }
+}
