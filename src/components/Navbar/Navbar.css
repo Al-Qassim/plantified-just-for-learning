@@ -42,7 +42,7 @@
         font-weight: 500;
         padding-bottom: 12px;
         padding-top: 8px;
-        color: #61665C;
+        color: #4a5045;
     
         .tab-indicator-line {
             position: absolute;
@@ -55,7 +55,7 @@
     }
     
     .tab.selected {
-        color: #318161;
+        color: #1f6b4b;
     }
 
 }

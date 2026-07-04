@@ -22,7 +22,72 @@
   top: 21px;
   left: 0;
   width: 263.24px;
+  height: 137px;
+}
+
+.hero-leaf-sprig-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 263.24px;
   height: auto;
+}
+
+/* Smooth swap between the two leaf frames without any brightness dip:
+   at every moment at least one frame is fully opaque. Frame B sits on
+   top. A -> B fades B in over the opaque A, then fades A out under the
+   opaque B; the reverse runs backwards. Only the moved leaves blend, so
+   it reads as a soft leaf morph. */
+.hero-leaf-sprig-img--a {
+  opacity: 1;
+  animation: hero-leaf-a 6s ease-in-out infinite;
+}
+
+.hero-leaf-sprig-img--b {
+  opacity: 0;
+  animation: hero-leaf-b 6s ease-in-out infinite;
+}
+
+@keyframes hero-leaf-a {
+  0%,
+  45%,
+  50% {
+    opacity: 1;
+  }
+  56%,
+  90% {
+    opacity: 0;
+  }
+  95%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-leaf-b {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  50%,
+  90%,
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-leaf-sprig-img--a,
+  .hero-leaf-sprig-img--b {
+    animation: none;
+  }
+
+  .hero-leaf-sprig-img--b {
+    opacity: 0;
+  }
 }
 
 .hero-title {

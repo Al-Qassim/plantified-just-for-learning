@@ -9,6 +9,9 @@ function HeroMedia() {
         src={plantImage}
         alt="A lush Monstera plant in a white pot held by a hand"
         loading="eager"
+        fetchPriority="high"
+        width={470}
+        height={470}
       />
     </div>
   );

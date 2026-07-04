@@ -2,17 +2,24 @@ import "./PlantCareCalendar.css";
 import { seasons } from "./calendar.data";
 
 const hangingPlant = `${import.meta.env.BASE_URL}plants/hanging-plant.svg`;
+const hangingPlantAlt = `${import.meta.env.BASE_URL}plants/hanging-plant-2.svg`;
 
 function PlantCareCalendar() {
   return (
     <section className="calendar">
       <div className="calendar-card">
-        <img
-          className="calendar-hanging"
-          src={hangingPlant}
-          alt=""
-          aria-hidden="true"
-        />
+        <div className="calendar-hanging" aria-hidden="true">
+          <img
+            className="calendar-hanging-img calendar-hanging-img--a"
+            src={hangingPlant}
+            alt=""
+          />
+          <img
+            className="calendar-hanging-img calendar-hanging-img--b"
+            src={hangingPlantAlt}
+            alt=""
+          />
+        </div>
 
         <header className="calendar-header">
           <h2 className="calendar-title">Care at the Right Time</h2>

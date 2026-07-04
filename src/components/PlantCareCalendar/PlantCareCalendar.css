@@ -11,16 +11,82 @@
   background-color: rgba(57, 187, 75, 0.06);
 }
 
-/* ---------- Decorative hanging plant ---------- */
+/* ---------- Decorative hanging plant (animated leaf rotation) ---------- */
 .calendar-hanging {
   position: absolute;
   top: 0;
   right: -32px;
   width: 150px;
-  height: auto;
+  height: 303px;
   z-index: 0;
   pointer-events: none;
   user-select: none;
+}
+
+.calendar-hanging-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: auto;
+  transform-origin: top center;
+}
+
+/* Smooth swap without the brightness dip: at every moment at least one
+   frame is fully opaque. Frame B sits on top. Going A -> B we first fade
+   B in while A stays opaque underneath, then fade A out while B is opaque
+   on top. Reversing does the same backwards. The only blending happens on
+   the leaves that actually moved, so it reads as a soft leaf morph. */
+.calendar-hanging-img--a {
+  opacity: 1;
+  animation: hanging-frame-a 6s ease-in-out infinite;
+}
+
+.calendar-hanging-img--b {
+  opacity: 0;
+  animation: hanging-frame-b 6s ease-in-out infinite;
+}
+
+@keyframes hanging-frame-a {
+  0%,
+  45%,
+  50% {
+    opacity: 1;
+  }
+  56%,
+  90% {
+    opacity: 0;
+  }
+  95%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hanging-frame-b {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  50%,
+  90%,
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar-hanging-img--a,
+  .calendar-hanging-img--b {
+    animation: none;
+  }
+
+  .calendar-hanging-img--b {
+    opacity: 0;
+  }
 }
 
 /* ---------- Header ---------- */
