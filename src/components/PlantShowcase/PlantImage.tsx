@@ -3,7 +3,7 @@ import type { Plant } from "./plants.data";
 
 const glow = `${import.meta.env.BASE_URL}plants/plant-glow.svg`;
 
-const SLIDE_DISTANCE = 90;
+const SLIDE_DISTANCE = 450;
 
 const photoVariants = {
   enter: (direction: number) => ({
@@ -41,7 +41,7 @@ function PlantImage({ plant, direction }: PlantImageProps) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ type: "spring", stiffness: 100, damping: 15 }}
           />
         </AnimatePresence>
       </div>
