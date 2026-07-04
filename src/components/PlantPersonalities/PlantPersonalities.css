@@ -74,6 +74,13 @@
   object-fit: cover;
 }
 
+.personality-card-media img {
+  transition: transform 0.5s ease;
+}
+.personality-card-media img:hover {
+  transform: scale(1.2);
+}
+
 .personality-card-price {
   position: absolute;
   top: 21px;

@@ -20,7 +20,7 @@ function PlantThumbnails({ plants, selectedId, onSelect }: PlantThumbnailsProps)
             aria-label={plant.name}
             aria-pressed={isSelected}
           >
-            <img src={plant.image} alt="" aria-hidden="true" />
+            <img src={plant.thumbnail} alt="" aria-hidden="true" />
           </button>
         );
       })}
