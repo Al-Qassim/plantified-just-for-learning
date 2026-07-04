@@ -1,0 +1,188 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 750px;
+  overflow: hidden;
+}
+
+/* ---------- Left: text column ---------- */
+.hero-text {
+  position: relative;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 512px;
+  padding-left: var(--page-padding-x);
+}
+
+.hero-leaf-sprig {
+  position: absolute;
+  top: 21px;
+  left: 0;
+  width: 263.24px;
+  height: auto;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 2.6vw, 2rem);
+  line-height: 1.25;
+  color: var(--color-heading);
+}
+
+.hero-title-accent {
+  color: var(--color-primary);
+}
+
+.hero-subtitle {
+  margin-top: 16px;
+  max-width: 448px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+/* ---------- Social proof pills ---------- */
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.hero-proof-pill {
+  padding: 8px 12px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.66);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* ---------- Buttons ---------- */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-primary {
+  padding: 4px 4px 4px 32px;
+  color: #fff;
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 6px rgba(52, 110, 60, 0.12);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #fff;
+  color: var(--color-primary);
+  transition: transform 0.25s ease;
+}
+
+.btn-primary:hover .btn-badge {
+  transform: rotate(-45deg);
+}
+
+.btn-ghost {
+  padding: 0 32px;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(52, 110, 60, 0.04);
+}
+
+/* ---------- Right: image column ---------- */
+.hero-media {
+  position: relative;
+  flex: 1 1 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.hero-blob {
+  position: absolute;
+  top: -196px;
+  right: -270px;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background-color: rgba(57, 187, 75, 0.06);
+}
+
+.hero-plant {
+  position: absolute;
+  z-index: 1;
+  width: 669px;
+  height: auto;
+  right: 0;
+  top: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 48px;
+    height: 80vh;
+  }
+
+  .hero-text {
+    max-width: 640px;
+    padding-top: 40px;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-proof,
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-leaf-sprig {
+    display: none;
+  }
+}

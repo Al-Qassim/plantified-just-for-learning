@@ -1,5 +1,40 @@
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
+:root {
+  --color-bg: rgba(252, 247, 242, 1);
+  --color-primary: #346e3c;
+  --color-primary-dark: #2a5a31;
+  --color-accent: #819e26;
+  --color-heading: rgba(31, 31, 31, 0.88);
+  --color-text: rgba(31, 31, 31, 0.66);
+  --color-blob: #dfe9d0;
+  --color-danger: #ff5630;
+
+  --font-display: "Tomorrow", sans-serif;
+  --font-heading: "Ubuntu", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
+  --page-padding-x: 64px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding-x: 24px;
+  }
 }
